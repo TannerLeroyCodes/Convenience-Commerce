@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :products
   resources :categories, only: [:index, :create, :update, :destroy]
-  get '/hello', to: 'application#hello_world'
+  
 
   get '*path',
       to: 'fallback#index',
