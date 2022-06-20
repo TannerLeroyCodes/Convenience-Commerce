@@ -5,7 +5,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.string :description
       t.integer :stock
       t.float :price
-      t.boolean :favorite
+      t.boolean :favorite, default: false
 
       t.timestamps
     end

@@ -1,20 +1,20 @@
 
-
-import { useState, useEffect } from "react";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import HomePage from "./HomePage";
+import ErrorPage from "./ErrorPage";
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
 
+ 
   return (
-    <div className="App">
-      <h1>Page Count: {count}</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path={"/"} element={<HomePage/>}/>
+        <Route exact path={"*"} element={<ErrorPage/>}/>
+    
+    </Routes>
+    </Router>
   );
 }
 
