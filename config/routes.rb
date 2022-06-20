@@ -1,5 +1,10 @@
 # config/routes.rb
 Rails.application.routes.draw do
+  resources :order_items
+  resources :orders
+  resources :users
+  resources :products
+  resources :categories, only: [:index, :create, :update, :destroy]
   get '/hello', to: 'application#hello_world'
 
   get '*path',
