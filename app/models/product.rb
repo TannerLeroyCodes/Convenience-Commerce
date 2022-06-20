@@ -6,4 +6,4 @@ class Product < ApplicationRecord
   validates :stock, numericality: {greater_than_or_equal_to: 0}, presence: true
   validates :description, length: {in: 10..50}, presence: true
 
-endgit 
+end 
