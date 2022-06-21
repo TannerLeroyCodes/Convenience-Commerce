@@ -2,10 +2,17 @@
 Rails.application.routes.draw do
   resources :order_items
   resources :orders
-  resources :users
+  # resources :users
   resources :products
   resources :categories, only: [:index, :create, :update, :destroy]
-  
+
+  post '/signup', to: "users#create"
+  get '/me', to: "users#show"
+  post "login", to: "sessons#create"
+  delete "/logout", to: "sessons#destroy"
+
+
+
 
   get '*path',
       to: 'fallback#index',
