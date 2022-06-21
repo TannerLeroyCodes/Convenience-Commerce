@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :stock
       t.float :price
       t.boolean :favorite, default: false
+      t.string :image_url
 
       t.timestamps
     end
