@@ -16,9 +16,8 @@ function App() {
   const user = useSelector((state) => state.user.value)
   console.log(user)
 
-  // const user = useSelector((state) => state.user.value)
   // const isAuthenticated = useSelector((state) => state.authenticated.value)
-  
+
   // useEffect(() => {
   //   fetch(`/orders`)
   //   .then((res) => res.json())
