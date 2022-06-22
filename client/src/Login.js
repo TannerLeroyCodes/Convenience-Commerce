@@ -19,16 +19,16 @@ function handleLogin(e){
 
     const user = {
         email: email,
-        password
+        password: password
     }
-
 fetch("/login",  {
     method: "POST",
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(user)
+    body:JSON.stringify(user)
 })
 .then(res=> {
-    if (res.ok){
+//    debugger 
+   if (res.ok){
         res.json()
         .then(user =>{
             dispatch(login(user))

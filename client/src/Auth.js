@@ -18,7 +18,7 @@ function Auth() {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state.user.value)
-    // const isAuthenticated = useSelector((state) => state.authenticated.value)
+    // const isAuthenticated = useSelector((state) => state.authenticate.value)
 
     function onSubmit(e){
         e.preventDefault();
@@ -28,7 +28,7 @@ function Auth() {
             email: email,
             password: password
         }
-     fetch('/users', {
+     fetch('/signup', {
         method: 'POST', 
         headers: {'Content-Type': 'application/json'},
         body:JSON.stringify(user),
@@ -59,6 +59,7 @@ function Auth() {
     <input type="text" placeholder="Email" value={email} onChange={(e) => {setEmail(e.target.value)}}></input>
     <label> Password</label>
     <input type="text" placeholder="Password" value={password} onChange={(e) => {setPassword(e.target.value)}}></input>
+    <button type="submit">Sign</button>
     </form>
     { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
     </div>
