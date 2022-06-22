@@ -1,12 +1,12 @@
 class OrderItemsController < ApplicationController
 
 def index 
-    render json: OrderItem.all 
+    render json: OrderItem.all, status: :ok
 end 
 
 def show
     order_item = OrderItem.find(params[:id])
-    render json: order_item
+    render json: order_item, status: :ok
 end 
 
 def create 
