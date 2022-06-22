@@ -51,4 +51,5 @@ gem "active_model_serializers", "~> 0.10.13"
 
 gem 'faker', '~> 2.10', '>= 2.10.2'
 
-# gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'sqlite3', '~> 1.4'
+
