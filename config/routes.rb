@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/me', to: "users#show"
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  get '/users/:user_id/orders/', to: "orders#index"
+
 
 
 
