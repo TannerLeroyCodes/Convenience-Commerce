@@ -1,8 +1,16 @@
 import React from 'react'
+import {useSelector} from 'react-redux';
+
 
 function Orders() {
+
+  const user = useSelector((state) => state.user.value)
   return (
-    <div>Orders</div>
+    <>
+    <h1>Orders</h1>
+
+    <h3>Welcome {user.first_name} </h3>
+    </>
   )
 }
 
