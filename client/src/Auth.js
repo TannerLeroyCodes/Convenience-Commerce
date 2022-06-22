@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
 import {login} from './features/user'
 import {authenticate} from './features/authenticated'
@@ -17,14 +16,13 @@ function Auth() {
 
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.user.value)
-    // const isAuthenticated = useSelector((state) => state.authenticate.value)
+
 
     function onSubmit(e){
         e.preventDefault();
         const user = {
-            firstName: firstName,
-            lastName: lastName,
+            first_name: firstName,
+            last_name: lastName,
             email: email,
             password: password
         }
@@ -38,7 +36,7 @@ function Auth() {
             res.json()
             .then(user=>{
                 dispatch(login(user))
-                dispatch(authenticate(true))
+                // dispatch(authenticate(true))
             })
      } else {
         res.json()
@@ -61,7 +59,7 @@ function Auth() {
     <input type="text" placeholder="Password" value={password} onChange={(e) => {setPassword(e.target.value)}}></input>
     <button type="submit">Sign</button>
     </form>
-    { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div>{key+': ' + Object.values(errors)[index]}</div>) : null }
+    { Object.keys(errors) ? Object.keys(errors).map((key, index) => <div key={key}>{key+': ' + Object.values(errors)[index]}</div>) : null }
     </div>
   )
 }
