@@ -3,11 +3,14 @@ import {useDispatch} from "react-redux";
 import {login} from './features/user'
 import {authenticate} from './features/authenticated'
 import Auth from './Auth'
+import {useNavigate} from 'react-router-dom'
 
 
 function Login() {
 
 const dispatch = useDispatch();
+
+const history = useNavigate();
 
 const [email, setEmail] = useState("")
 const [password, setPassword] = useState("")
@@ -32,12 +35,14 @@ fetch("/login",  {
         res.json()
         .then(user =>{
             dispatch(login(user))
-            dispatch(authenticate(true))
+            // dispatch(authenticate(true))
         })
     } else {
         res.json()
         .then(json => setError(json.eror))
     }
+
+    history("/orders")
 })
 
      
