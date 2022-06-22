@@ -1,7 +1,8 @@
 class OrdersController < ApplicationController
 
 def index 
-    render json: Order.all
+    orders = Order.all
+    render json: orders
 end 
 
 def show 
