@@ -6,7 +6,7 @@ puts "Seeding begins..."
 puts "Seeding Users..."
 
 tanner = User.create(first_name: "Tanner", last_name: "Leroy", email: "tanner@tleroy.com", admin: true, password: "password" )
-bella = User.create(first_name: "Bella", last_name: "Jo", email: "bella@tleroy.com", admin: true, password: "password" )
+bella = User.create(first_name: "Bella", last_name: "Jo", email: "bella@frog.com", admin: true, password: "password" )
 # binding.pry
 
 
