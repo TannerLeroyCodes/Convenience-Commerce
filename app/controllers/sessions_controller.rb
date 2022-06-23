@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
-    # skip_before_action :is_logged_in?, only: :login
-    skip_before_action :is_authorized?, only: :login
+
+    # skip_before_action :is_authorized?, only: :login
     # before_action :is_authorized?
 
     def login
