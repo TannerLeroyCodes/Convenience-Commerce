@@ -1,10 +1,30 @@
 import React, {useState} from 'react'
 
+// redux
+import {useSelector} from "react-redux"
+
+// components
+import UpdateProductsForm from "./UpdateProductsForm"
+
 function ProductCard({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
   const [isFavorite, setIsFavorite] = useState(favorite)
-
+  
   const handleClick = () => {
     setIsFavorite(isFavorite => !isFavorite)
+  }
+
+  const user = useSelector(state => state.user.value)
+
+  // console.log(user)
+
+
+  const isAdmin = user.admin === true ? (
+  <button onClick={e => renderProductUpdateForm(e)}>Update {name} info</button>
+  ) : null
+
+  const renderProductUpdateForm = () => {
+    // console.log("render!")
+    (<UpdateProductsForm />)
   }
 
 
@@ -19,6 +39,7 @@ function ProductCard({product, product: {category, description, favorite, id, im
       <button onClick ={e => handleClick(e)}>
         {isFavorite? "★": "☆"}
       </button>
+      {isAdmin}
     </div>
   )
 }
