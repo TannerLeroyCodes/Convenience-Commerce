@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 export const currentOrderSlice = createSlice({
-    name: 'currentOrder',
+    name: '',
     initialState: {value: {id: "", user_id:"", ordered: false }},
     reducers: {
         makeCurrentOrder: (state, action) => {
@@ -9,9 +9,8 @@ export const currentOrderSlice = createSlice({
         },
 
         leaveCurrentOrder: (state, action) =>{
-         state.value = {id: ""}
-            
-        }}
+         state.value = {id: ""} }
+    }
     },
 );
 

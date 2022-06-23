@@ -7,7 +7,6 @@ import Orders from "./Orders";
 import Products from "./Products";
 // import CheckOut from "./CheckOut";
 import {useSelector} from 'react-redux';
-import Auth from "./Auth";
 import ShoppingCart from './ShoppingCart';
 
 function App() {

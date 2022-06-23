@@ -32,6 +32,7 @@ function handleClick(){
     res.json()
   .then(order => {
    dispatch(makeCurrentOrder(order))
+   
   })
 } else {
   res.json()
