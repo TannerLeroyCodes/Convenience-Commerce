@@ -12,6 +12,8 @@ function Login({}) {
 
 const dispatch = useDispatch();
 const user1 = useSelector((state) => state.user.value)
+const userLastOrder = user1.orders
+
 
 const history = useNavigate();
 
@@ -22,7 +24,7 @@ const [error, setError] = useState([])
 
 function handleLogin(e){
     e.preventDefault();
-
+    
     const user = {
         email: email,
         password: password
@@ -38,11 +40,11 @@ fetch("/login",  {
         res.json()
         .then(user =>{
             dispatch(login(user))
-            // setCurrentOrder(user.orders.slice(-1))
         })
-        .then(dispatch(makeCurrentOrder(user1.orders.slice(-1))))
+        // console.log(userLastOrder)
+        // dispatch(makeCurrentOrder(userLastOrder))
         .then(history("/orders"))
-
+        // dispatch(makeCurrentOrder(userLastOrder))
 
     } else {
         res.json()
@@ -52,8 +54,6 @@ fetch("/login",  {
 
 })
 
-     
-    // dispatch(login(fetch_obj))
 }
 
   return (

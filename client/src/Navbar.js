@@ -3,6 +3,7 @@ import {NavLink} from 'react-router-dom'
 import {useSelector} from 'react-redux';
 import {useDispatch} from "react-redux";
 import {logout} from './features/user'
+import {leaveCurrentOrder} from './features/currentOrder'
 
 
 function Navbar() {
@@ -14,6 +15,7 @@ function Navbar() {
   function handleLogOut(){
     fetch("/logout", {"method": "DELETE"})
     .then(dispatch(logout(user)))
+    .then(dispatch(leaveCurrentOrder()))
   }
 
   return (
