@@ -26,3 +26,9 @@ code {
     font-size: 20px;
     width: 240px
 }
+
+.product-card {
+  max-width: 30%; 
+  height:auto;
+  align:center;
+}
