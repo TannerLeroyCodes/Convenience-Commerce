@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-    before_action :is_authorized?
+  
     # before_action :is_admin? # note: if both admins & auth users have full crud, does admin even need to be verified? 
 
     def index 
@@ -24,7 +24,7 @@ class OrderItemsController < ApplicationController
 
     def destroy
         order_item = OrderItem.find(params[:id])
-        order_item.destroy
+        order_item.destroy!
         head :no_content
     end 
 

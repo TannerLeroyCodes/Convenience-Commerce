@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
-    before_action :is_authorized?, only: [:index, :show]
-    before_action :is_admin?
+    skip_before_action :is_authorized?, :only [:index, :show]
+    before_action :is_admin?, only: [:create, :update, :destroy]
 
     def index 
         render json: Product.all
