@@ -51,7 +51,7 @@ gem "active_model_serializers", "~> 0.10.13"
 
 gem 'faker', '~> 2.10', '>= 2.10.2'
 
-gem 'sqlite3', '~> 1.4'
+# gem 'sqlite3', '~> 1.4'
 
 gem 'byebug', '~> 11.1', '>= 11.1.3'
 
