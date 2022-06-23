@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+    before_action :is_authorized?
+    # note: same q as with order_items_controller. don't think is_admin? is needed, but want to double check
 
 def index 
     orders = Order.all
