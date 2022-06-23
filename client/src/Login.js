@@ -2,14 +2,16 @@ import React, {useState} from 'react';
 import {useDispatch} from "react-redux";
 import {login} from './features/user'
 import { makeCurrentOrder } from './features/currentOrder';
-// import {authenticate} from './features/authenticated'
+
 import Auth from './Auth'
 import {useNavigate} from 'react-router-dom'
+import {useSelector} from 'react-redux';
 
 
-function Login({setCurrentOrder}) {
+function Login({}) {
 
 const dispatch = useDispatch();
+const user1 = useSelector((state) => state.user.value)
 
 const history = useNavigate();
 
@@ -36,9 +38,9 @@ fetch("/login",  {
         res.json()
         .then(user =>{
             dispatch(login(user))
-            dispatch(makeCurrentOrder(user.orders.slice(-1)))
             // setCurrentOrder(user.orders.slice(-1))
         })
+        .then(dispatch(makeCurrentOrder(user1.orders.slice(-1))))
         .then(history("/orders"))
 
 
