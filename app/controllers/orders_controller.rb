@@ -3,12 +3,13 @@ class OrdersController < ApplicationController
     # note: same q as with order_items_controller. don't think is_admin? is needed, but want to double check
 
 def index 
-    render json: Order.all
+    orders = Order.all
+    render json: orders, include: :order_items
 end 
 
 def show 
     order = Order.find(params[:id])
-    render json: order
+    render json: order, include: :order_items
 end 
 
 def create 
