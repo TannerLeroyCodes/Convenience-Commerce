@@ -29,6 +29,7 @@ function OrderCard({order}) {
     <div>Quantity of items: {order.order_items.length}</div>
     <button onClick={handleDelete}>Delete Order</button>
     <button onClick={handleShoppingCart}> View your order</button>
+  
     
     </div>
   )
