@@ -7,7 +7,7 @@ function Orders({}) {
 
   const user = useSelector((state) => state.user.value)
   //need to cause a re-render on creating a new order 
-  // const [currentOrder, setCurrentOrder] = useState({})
+  const [currentOrder, setCurrentOrder] = useState({})
 
 function handleClick(){
 
@@ -21,8 +21,9 @@ function handleClick(){
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify(newOrder)
-  },[])
-  // setCurrentOrder(newOrder)
+  },[]).then(res => res.json())
+  .then(data => setCurrentOrder(data))
+  
 }
 
   return (
