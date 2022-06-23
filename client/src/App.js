@@ -14,7 +14,7 @@ function App() {
   const [orders, setOrders] = useState([])
 
   const user = useSelector((state) => state.user.value)
-  console.log(user)
+ 
 
   // const isAuthenticated = useSelector((state) => state.authenticated.value)
 
