@@ -12,14 +12,9 @@ import Auth from "./Auth";
 function App() {
 
   const [orders, setOrders] = useState([])
-  const [products, setProducts] = useState([])
   const user = useSelector((state) => state.user.value)
 
-  useEffect(() => {
-    fetch("/products")
-      .then(r => r.json())
-      .then(productsData => setProducts(productsData))
-  }, [])
+
 
   // const isAuthenticated = useSelector((state) => state.authenticated.value)
 
@@ -35,7 +30,7 @@ function App() {
       <Routes>
         <Route exact path={"/"} element={<HomePage/>}/>
         <Route exact path={"/orders"} element={<Orders orders={user.orders}/>}/>
-        <Route exact path={"/products"} element={<Products products={products}/>}/>
+        <Route exact path={"/products"} element={<Products/>}/>
 
         <Route exact path={"*"} element={<ErrorPage/>}/>
     
