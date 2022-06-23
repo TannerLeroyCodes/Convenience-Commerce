@@ -14,8 +14,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
   def is_authorized? 
     # byebug
-    # @current_user = User.find_by(id: session[:user_id])
-    render json: {errors: ["Not authorized", "Must log-in or create an account to access Convenient Commerce"]}, status: :unauthorized unless current_user
+    @current_user = User.find_by(id: session[:user_id])
+    render json: {errors: ["Not authorized", "Must log-in or create an account to access Convenient Commerce"]}, status: :unauthorized unless @current_user
   end
 
   def is_admin?

@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from 'react'
+
+// components
 import ProductCard from "./ProductCard"
+
+
 
 function Products() {
   const [products, setProducts] = useState([])

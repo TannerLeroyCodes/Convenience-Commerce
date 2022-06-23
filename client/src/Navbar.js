@@ -6,7 +6,6 @@ import {logout} from './features/user'
 import {leaveCurrentOrder} from './features/currentOrder'
 
 
-
 function Navbar() {
 
   const user = useSelector((state) => state.user.value)
