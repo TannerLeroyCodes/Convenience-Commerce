@@ -14,6 +14,6 @@ export const currentOrderSlice = createSlice({
     },
 );
 
-export const {makeCurrentOrder} = currentOrderSlice.actions;
+export const {makeCurrentOrder, leaveCurrentOrder} = currentOrderSlice.actions;
 
 export default currentOrderSlice.reducer;

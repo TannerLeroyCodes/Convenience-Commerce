@@ -40,7 +40,6 @@ fetch("/login",  {
             dispatch(login(user))
             // setCurrentOrder(user.orders.slice(-1))
         })
-        .then(dispatch(makeCurrentOrder(user1.orders.slice(-1))))
         .then(history("/orders"))
 
 
