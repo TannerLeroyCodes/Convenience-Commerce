@@ -5,9 +5,10 @@ import {useDispatch} from "react-redux";
 import {logout} from './features/user'
 
 
-function Navbar({currentOrder}) {
+function Navbar() {
 
   const user = useSelector((state) => state.user.value)
+  const currentOrder = useSelector((state) => state.currentOrder.value)
   const dispatch = useDispatch();
 
   function handleLogOut(){
@@ -19,7 +20,7 @@ function Navbar({currentOrder}) {
     <div>
         <NavLink className={'navBarLink'} to="/"> HomePage</NavLink>
         <NavLink className={'navBarLink'} to="/orders"> Orders </NavLink>
-        {/* <NavLink className={'navBarLink'} to={`/order/${currentOrder.id}`} >Shopping Cart</NavLink>      */}
+        <NavLink className={'navBarLink'} to={`/orders/${currentOrder.id}`} >Shopping Cart</NavLink>     
          <NavLink className={'navBarLink'} to="/products"> Products </NavLink>
          {user.id ? <button onClick={handleLogOut}>Log-out</button>: null}
     </div>

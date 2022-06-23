@@ -3,15 +3,15 @@ import {useSelector} from 'react-redux';
 
 function ShoppingCart({}) {
 
-// const currentOrder = useSelector((state) => state.currentOrder.value)
+const currentOrder = useSelector((state) => state.currentOrder.value)
   
   return (
     <>
-    {/* /* {currentOrder.id ? <> 
+ {currentOrder.id ? <> 
     <h1>ShoppingCart</h1>
     
-    <div>Order ID:{currentOrder}</div>
-    </> : <h1>Please log-in to view shopping cart</h1>} */}
+    <div>Order ID:{currentOrder.id}</div>
+    </> : <h1>Please log-in to view shopping cart</h1>}
     </> 
   )
 }

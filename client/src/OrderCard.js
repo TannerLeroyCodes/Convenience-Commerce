@@ -1,6 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import {useSelector} from 'react-redux';
+import {useDispatch} from "react-redux";
+import { makeCurrentOrder } from './features/currentOrder';
 
 // need to cause a re-render on delete. 
 
@@ -8,6 +9,7 @@ import {useSelector} from 'react-redux';
 function OrderCard({order}) {
 
   const history = useNavigate();
+  const dispatch = useDispatch();
   // const currentOrder = useSelector((state) => state.currentOrder.value)
 
     function handleDelete(){
@@ -15,6 +17,7 @@ function OrderCard({order}) {
     }
 
     function handleShoppingCart(){
+      dispatch(makeCurrentOrder(order))
       history(`/orders/${order.id}`)
     }
 
