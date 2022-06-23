@@ -1,5 +1,5 @@
 class OrderItemsController < ApplicationController
-    before_action :is_authorized?
+  
     # before_action :is_admin? # note: if both admins & auth users have full crud, does admin even need to be verified? 
 
     def index 
