@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    before_action :is_authorized?
     before_action :is_admin?, only: [:create, :update, :destroy]
 
     def index 

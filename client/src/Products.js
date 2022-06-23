@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ProductCard from "./ProductCard"
 
 function Products() {
@@ -8,7 +8,7 @@ function Products() {
     fetch("/products")
       .then(r => r.json())
       .then(productData => setProducts(productData))
-  })
+  },[])
 
   const productsToRender = products.map(product => <ProductCard product={product} key={product.id}/>)
   

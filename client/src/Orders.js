@@ -1,16 +1,19 @@
 import React, {useState} from 'react'
 import {useSelector} from 'react-redux';
 import OrderCard from './OrderCard';
-import {useDispatch} from 'react-redux';
+// import {useDispatch} from 'react-redux';
 import {makeCurrentOrder} from './features/currentOrder';
 import {useNavigate} from 'react-router-dom'
+import {useDispatch} from "react-redux";
+
+
 
 
 
 function Orders({}) {
 
   const user = useSelector((state) => state.user.value)
-  const currentOrder = useSelector((state) => state.value)
+  // const currentOrder = useSelector((state) => state.value)
   const dispatch = useDispatch();
   const history = useNavigate();
   const [error, setErrors] = useState([])
@@ -31,7 +34,8 @@ function handleClick(){
     if (res.ok){
     res.json()
   .then(order => {
-   dispatch(makeCurrentOrder(order))
+  (dispatch(makeCurrentOrder(order)))
+  history(`/orders/${order.id}`)
    
   })
 } else {
@@ -40,7 +44,6 @@ function handleClick(){
 }
   
   })}
-
 
 
   return (

@@ -6,7 +6,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_resp
 
   # ensuring users must be authorized (authenticated to access any portion of the code)
   # before_action :is_logged_in? 
-  before_action :is_authorized?
+  
 
   def current_user
     User.find_by(id: session[:user_id])

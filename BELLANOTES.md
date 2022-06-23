@@ -10,3 +10,26 @@ ORDER_ITEMS
 
 CATEGORIES
 - i'm hardcoding the categories.. need to finalize what few categories we want to have. 
+
+// admin 
+handleUpdate(){
+
+const = product_obj
+
+fetch request 
+method: PATCH
+body: {product_obj}
+
+//add product to shopping cart
+
+handleAddToCart(){
+    const = order_item {
+        product_id: product.id 
+        user_id: user.id
+    }
+
+    fetch request to "/order_items"
+    method: POST
+    body: {order_item}
+}
+

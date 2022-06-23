@@ -5,10 +5,12 @@ import App from './App';
 import {configureStore} from '@reduxjs/toolkit';
 import {Provider} from 'react-redux';
 import userReducer from './features/user';
+import currentOrderReducer from './features/currentOrder';
 
 const store = configureStore({
   reducer: {
   user: userReducer,
+  currentOrder: currentOrderReducer,
   },
 })
 
