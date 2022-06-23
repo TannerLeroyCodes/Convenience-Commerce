@@ -19,12 +19,12 @@ function ProductCard({product, product: {category, description, favorite, id, im
 
 
   const isAdmin = user.admin === true ? (
-  <button onClick={e => renderProductUpdateForm(e)}>Update {name} info</button>
+  <button onClick={e => handleUpdateClick(e)}>Update {name} info</button>
   ) : null
 
-  const renderProductUpdateForm = () => {
-    // console.log("render!")
-    (<UpdateProductsForm />)
+  const handleUpdateClick = (e) => {
+    console.log(e)
+    return (<UpdateProductsForm />)
   }
 
 
