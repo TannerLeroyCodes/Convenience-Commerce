@@ -26,7 +26,9 @@ function UpdateProductsForm({product, product: {category, description, favorite,
         }
       }
 
-      console.log(updatedProduct)
+      console.log("updated product: ", updatedProduct)
+
+      console.log("original product:", product)
 
     //   fetch("/products", {
     //       method: "POST", 
@@ -38,8 +40,6 @@ function UpdateProductsForm({product, product: {category, description, favorite,
     //     .then(r => r.json())
     //     .then(updatedProduct => console.log(updatedProduct))
     }
-
-
 
     return (
     <div>UpdateProductsForm
