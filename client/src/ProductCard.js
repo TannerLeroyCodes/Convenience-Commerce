@@ -6,10 +6,13 @@ import {useSelector} from "react-redux"
 // components
 import UpdateProductsForm from "./UpdateProductsForm"
 
-function ProductCard({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+function ProductCard({product, updateProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+
+  // alternate states:
   const [isFavorite, setIsFavorite] = useState(favorite)
-  
-  const handleClick = () => {
+  const [isUpdateRendered, setIsUpdateRendered] = useState(false)
+
+  const handleFavoriteClick = () => {
     setIsFavorite(isFavorite => !isFavorite)
   }
 
@@ -19,27 +22,27 @@ function ProductCard({product, product: {category, description, favorite, id, im
 
 
   const isAdmin = user.admin === true ? (
-  <button onClick={e => renderProductUpdateForm(e)}>Update {name} info</button>
+  <button onClick={e => handleUpdateFormClick(e)}>Update {name} info</button>
   ) : null
 
-  const renderProductUpdateForm = () => {
-    // console.log("render!")
-    (<UpdateProductsForm />)
-  }
+  const handleUpdateFormClick = (e) => setIsUpdateRendered(current => !current)
 
 
   return (
-    <div>ProductCard
+    <div>
       <img src={image_url} alt={name} className="product-card"></img>
       <h2>{name}</h2>
-      <h3>{description}</h3>
+      <h3>Description: {description}</h3>
       <h3>Category: {category.name}</h3>
       <h3>Price: ${price}</h3>
       <h3>Amount in stock: {stock}</h3>
-      <button onClick ={e => handleClick(e)}>
+      <button onClick ={e => handleFavoriteClick(e)}>
         {isFavorite? "★": "☆"}
       </button>
       {isAdmin}
+      {isUpdateRendered && (
+        <UpdateProductsForm product={product} updateProduct={updateProduct}/>
+      )}
     </div>
   )
 }
