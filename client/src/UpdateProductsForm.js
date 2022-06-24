@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 
 function UpdateProductsForm({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
-  const [categoryValue, setCategoryValue] = useState("")
+  const [categoryValue, setCategoryValue] = useState(category.name)
   const [descriptionValue, setDescriptionValue] = useState("")
-  const [favoriteValue, setFavoriteValue] = useState("")
+  const [favoriteValue, setFavoriteValue] = useState(favorite)
   const [imageUrlValue, setImageUrlValue] = useState("")
   const [nameValue, setNameValue] = useState("")
   const [stockValue, setStockValue] = useState("")
@@ -41,6 +41,8 @@ function UpdateProductsForm({product, product: {category, description, favorite,
     //     .then(updatedProduct => console.log(updatedProduct))
     }
 
+    const stringToBoolean = (e) => e.target.value === "false" ? setFavoriteValue(false) : setFavoriteValue(true)
+
     return (
     <div>UpdateProductsForm
         <form onSubmit={e => handleUpdateProductFormSubmit(e)}>
@@ -62,9 +64,9 @@ function UpdateProductsForm({product, product: {category, description, favorite,
             <label>Category Name
                 <input type='text' value={categoryValue} onChange={e => setCategoryValue(e.target.value)}></input>
             </label>
-            <select onChange={e => setFavoriteValue(e.target.value)}>
-                <option value={true}>favorite {name}</option>
-                <option value={false}>un-favorite {name}</option>
+            <select onChange={e => stringToBoolean(e)}>
+                <option value="true">favorite {name}</option>
+                <option value="false">un-favorite {name}</option>
             </select>
 
             <input type='submit'></input>
