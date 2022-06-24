@@ -6,6 +6,8 @@ PRODUCTS/PRODUCTCARD:
     __action list:__
         - create state for update form inputs
         - create patch request for products
+        - convert price string type to integer compatible with float ruby type 
+        - convert stock string type to integer (without decimals)
 
 // admin 
 handleUpdate(){

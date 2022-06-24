@@ -22,6 +22,7 @@ function UpdateProductsForm({product, product: {category, description, favorite,
         favorite: favoriteValue, 
         image_url: imageUrlValue, 
         category: {
+            id: category.id,
             name: categoryValue
         }
       }
@@ -41,7 +42,10 @@ function UpdateProductsForm({product, product: {category, description, favorite,
     //     .then(updatedProduct => console.log(updatedProduct))
     }
 
+    // value type conversions:
     const stringToBoolean = (e) => e.target.value === "false" ? setFavoriteValue(false) : setFavoriteValue(true)
+    const stringToInteger = (e) => setStockValue(parseInt(e.target.value)) 
+    const stringToFloat = (e) => setPriceValue(parseFloat(e.target.value))
 
     return (
     <div>UpdateProductsForm
@@ -53,10 +57,10 @@ function UpdateProductsForm({product, product: {category, description, favorite,
                 <input type='text' value={descriptionValue} onChange={e => setDescriptionValue(e.target.value)}></input>
             </label>
             <label>Stock
-                <input type='text' value={stockValue} onChange={e => setStockValue(e.target.value)}></input>
+                <input type='number' value={stockValue} onChange={e => stringToInteger(e)}></input>
             </label>
             <label>Price
-                <input type='text' value={priceValue} onChange={e => setPriceValue(e.target.value)}></input>
+                <input type='number' value={priceValue} onChange={e => stringToFloat(e)}></input>
             </label>
             <label>Image Url
                 <input type='text' value={imageUrlValue} onChange={e => setImageUrlValue(e.target.value)}></input>
