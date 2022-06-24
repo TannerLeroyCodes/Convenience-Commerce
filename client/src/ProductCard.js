@@ -7,6 +7,8 @@ import {useSelector} from "react-redux"
 import UpdateProductsForm from "./UpdateProductsForm"
 
 function ProductCard({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+
+  // alternate states:
   const [isFavorite, setIsFavorite] = useState(favorite)
   const [isUpdateRendered, setIsUpdateRendered] = useState(false)
 
@@ -39,7 +41,7 @@ function ProductCard({product, product: {category, description, favorite, id, im
       </button>
       {isAdmin}
       {isUpdateRendered && (
-        <UpdateProductsForm />
+        <UpdateProductsForm product={product}/>
       )}
     </div>
   )

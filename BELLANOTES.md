@@ -3,6 +3,10 @@ __todos__
 PRODUCTS/PRODUCTCARD: 
 - create an update button for products that only renders if the logged-in user is an admin
 
+    __action list:__
+        - create state for update form inputs
+        - create patch request for products
+
 // admin 
 handleUpdate(){
 
