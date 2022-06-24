@@ -6,7 +6,7 @@ import {useSelector} from "react-redux"
 // components
 import UpdateProductsForm from "./UpdateProductsForm"
 
-function ProductCard({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+function ProductCard({product, updateProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
 
   // alternate states:
   const [isFavorite, setIsFavorite] = useState(favorite)
@@ -29,7 +29,7 @@ function ProductCard({product, product: {category, description, favorite, id, im
 
 
   return (
-    <div>ProductCard
+    <div>
       <img src={image_url} alt={name} className="product-card"></img>
       <h2>{name}</h2>
       <h3>{description}</h3>
@@ -41,7 +41,7 @@ function ProductCard({product, product: {category, description, favorite, id, im
       </button>
       {isAdmin}
       {isUpdateRendered && (
-        <UpdateProductsForm product={product}/>
+        <UpdateProductsForm product={product} updateProduct={updateProduct}/>
       )}
     </div>
   )

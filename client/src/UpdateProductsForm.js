@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
 
-function UpdateProductsForm({product, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+function UpdateProductsForm({product, updateProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
   const [categoryValue, setCategoryValue] = useState(category.name)
-  const [descriptionValue, setDescriptionValue] = useState("")
+  const [descriptionValue, setDescriptionValue] = useState(description)
   const [favoriteValue, setFavoriteValue] = useState(favorite)
-  const [imageUrlValue, setImageUrlValue] = useState("")
-  const [nameValue, setNameValue] = useState("")
-  const [stockValue, setStockValue] = useState("")
-  const [priceValue, setPriceValue] = useState("")
+  const [imageUrlValue, setImageUrlValue] = useState(image_url)
+  const [nameValue, setNameValue] = useState(name)
+  const [stockValue, setStockValue] = useState(stock)
+  const [priceValue, setPriceValue] = useState(price)
 
 
 
@@ -39,7 +39,7 @@ function UpdateProductsForm({product, product: {category, description, favorite,
             body: JSON.stringify(updatedProduct)
       })
         .then(r => r.json())
-        .then(updatedProduct => console.log(updatedProduct))
+        .then(updatedProduct => updateProduct(updatedProduct))
     }
 
     // value type conversions:
