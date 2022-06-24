@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-function NewProductForm({}) {
+function NewProductForm({addNewProduct}) {
 
     const [categoryValue, setCategoryValue] = useState("")
     const [descriptionValue, setDescriptionValue] = useState("")
@@ -10,6 +10,35 @@ function NewProductForm({}) {
     const [stockValue, setStockValue] = useState("")
     const [priceValue, setPriceValue] = useState("")
 
+
+    // const handleNewProductFormSubmit = (e) => {
+    //     e.preventDefault();
+
+    //     const newProduct = {
+    //         name: nameValue, 
+    //     description: descriptionValue, 
+    //     stock: stockValue, 
+    //     price: priceValue, 
+    //     favorite: favoriteValue, 
+    //     image_url: imageUrlValue, 
+    //     category: {
+    //         name: categoryValue
+    //     }
+    //     }
+        
+    //     fetch("/products", {
+    //         method: "POST", 
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         }, 
+    //         body: JSON.stringify(newProduct)
+    //     })
+    //         .then(r => r.json())
+    //         .then(newProduct => addNewProduct(newProduct))
+    // }
+
+    
+
     // value type conversions:
      const stringToBoolean = (e) => e.target.value === "false" ? setFavoriteValue(false) : setFavoriteValue(true)
      const stringToInteger = (e) => setStockValue(parseInt(e.target.value)) 
@@ -17,7 +46,7 @@ function NewProductForm({}) {
 
   return (
     <div>NewProductForm
-        <form>
+        <form onSubmit ={e => handleNewProductFormSubmit(e)}>
         <label>Name
                 <input type='text' value={nameValue}  onChange={e => setNameValue(e.target.value)}></input>
             </label>

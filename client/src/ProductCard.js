@@ -6,7 +6,7 @@ import {useSelector} from "react-redux"
 // components
 import UpdateProductsForm from "./UpdateProductsForm"
 
-function ProductCard({product, updateProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+function ProductCard({product, updateProduct, removeProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
   // redux states:
   const user = useSelector(state => state.user.value)
 
@@ -18,6 +18,13 @@ function ProductCard({product, updateProduct, product: {category, description, f
     setIsFavorite(current => !current)
   }
 
+  const handleDeleteClick = (e) => {
+    fetch(`/products/${id}`, {
+      method: "DELETE",
+    })
+      .then(r => r.json())
+      .then(deletedProduct => removeProduct(product))
+  }
 
 
   // console.log(user)
@@ -26,7 +33,7 @@ function ProductCard({product, updateProduct, product: {category, description, f
   const isAdminIfSoUpdateAndDelete = user.admin === true ? (
     <>
       <button onClick={e => handleUpdateFormClick(e)}>Update {name} info</button>
-      <button>Delete {name}</button>
+      <button onClick={e => handleDeleteClick(e)}>Delete {name}</button>
     </>
   
   ) : null

@@ -28,17 +28,28 @@ function Products() {
 
   const handleNewFormClick = (e) => setIsNewFormRendered(current => !current)
 
+  const addNewProduct = (newProduct) => {
+    const updatedProducts = [...products, newProduct]
+    setProducts(updatedProducts)
+  }
+
   const updateProduct = (updatedProduct) => {
     const updatedProducts = products.map(product => product.id === updatedProduct.id ? updatedProduct : product )
     setProducts(updatedProducts)
   }
 
-  const productsToRender = products.map(product => <ProductCard product={product} key={product.id} updateProduct={updateProduct}/>)
+  const removeProduct = (deletedProduct) => {
+    const updatedProducts = products.filter(product => product !== deletedProduct)
+    setProducts(updatedProducts) 
+  }
+
+  const productsToRender = products.map(product => <ProductCard product={product} key={product.id} updateProduct={updateProduct} removeProduct={removeProduct}/>)
 
   return (
     <div>
+      {isAdminIfSoCreate}
       {isNewFormRendered && (
-        <NewProductForm />
+        <NewProductForm addNewProduct={addNewProduct}/>
       )}
       {productsToRender}
     </div>

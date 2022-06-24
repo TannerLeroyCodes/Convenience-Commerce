@@ -23,7 +23,7 @@ function UpdateProductsForm({product, updateProduct, product: {category, descrip
         image_url: imageUrlValue, 
         category: {
             id: category.id,
-            name: categoryValue
+            name: "Furniture"
         }
       }
 
