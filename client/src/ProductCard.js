@@ -7,22 +7,28 @@ import {useSelector} from "react-redux"
 import UpdateProductsForm from "./UpdateProductsForm"
 
 function ProductCard({product, updateProduct, product: {category, description, favorite, id, image_url, name, stock, price}}) {
+  // redux states:
+  const user = useSelector(state => state.user.value)
 
   // alternate states:
   const [isFavorite, setIsFavorite] = useState(favorite)
   const [isUpdateRendered, setIsUpdateRendered] = useState(false)
 
   const handleFavoriteClick = () => {
-    setIsFavorite(isFavorite => !isFavorite)
+    setIsFavorite(current => !current)
   }
 
-  const user = useSelector(state => state.user.value)
+
 
   // console.log(user)
 
 
-  const isAdmin = user.admin === true ? (
-  <button onClick={e => handleUpdateFormClick(e)}>Update {name} info</button>
+  const isAdminIfSoUpdateAndDelete = user.admin === true ? (
+    <>
+      <button onClick={e => handleUpdateFormClick(e)}>Update {name} info</button>
+      <button>Delete {name}</button>
+    </>
+  
   ) : null
 
   const handleUpdateFormClick = (e) => setIsUpdateRendered(current => !current)
@@ -39,7 +45,7 @@ function ProductCard({product, updateProduct, product: {category, description, f
       <button onClick ={e => handleFavoriteClick(e)}>
         {isFavorite? "★": "☆"}
       </button>
-      {isAdmin}
+      {isAdminIfSoUpdateAndDelete}
       {isUpdateRendered && (
         <UpdateProductsForm product={product} updateProduct={updateProduct}/>
       )}
