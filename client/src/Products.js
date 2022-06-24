@@ -13,7 +13,7 @@ function Products() {
   },[])
 
   const updateProduct = (updatedProduct) => {
-    const updatedProducts = [...products, updatedProduct]
+    const updatedProducts = products.map(product => product.id === updatedProduct.id ? updatedProduct : product )
     setProducts(updatedProducts)
   }
 
