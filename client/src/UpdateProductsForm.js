@@ -31,7 +31,7 @@ function UpdateProductsForm({product, product: {category, description, favorite,
 
     //   console.log("original product:", product)
 
-      fetch("/products", {
+      fetch(`/products/${id}`, {
           method: "PATCH", 
           headers: {
               "Content-Type": "application/json",
