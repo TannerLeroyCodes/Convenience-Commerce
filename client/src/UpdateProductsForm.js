@@ -6,11 +6,23 @@ function UpdateProductsForm() {
     return (
     <div>UpdateProductsForm
         <form>
-            <input type='text'>hello</input>
-            <input type='text'></input>
-            <input type='text'></input>
-            <input type='text'></input>
-            <submit></submit>
+            <label>Name
+                <input type='text'></input>
+            </label>
+            <label>Description
+                <input type='text'></input>
+            </label>
+            <label>Stock
+                <input type='text'></input>
+            </label>
+            <label>Price
+                <input type='text'></input>
+            </label>
+            <label>Image Url
+                <input type='text'></input>
+            </label>
+            <input type='submit'></input>
+            
         </form>
     </div>
   )
