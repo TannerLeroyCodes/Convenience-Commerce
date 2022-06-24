@@ -27,19 +27,19 @@ function UpdateProductsForm({product, product: {category, description, favorite,
         }
       }
 
-      console.log("updated product: ", updatedProduct)
+    //   console.log("updated product: ", updatedProduct)
 
-      console.log("original product:", product)
+    //   console.log("original product:", product)
 
-    //   fetch("/products", {
-    //       method: "POST", 
-    //       headers: {
-    //           "Content-Type": "application/json",
-    //         }, 
-    //         body: JSON.stringify(updatedProduct)
-    //   })
-    //     .then(r => r.json())
-    //     .then(updatedProduct => console.log(updatedProduct))
+      fetch("/products", {
+          method: "PATCH", 
+          headers: {
+              "Content-Type": "application/json",
+            }, 
+            body: JSON.stringify(updatedProduct)
+      })
+        .then(r => r.json())
+        .then(updatedProduct => console.log(updatedProduct))
     }
 
     // value type conversions:
