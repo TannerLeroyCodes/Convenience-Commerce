@@ -11,31 +11,33 @@ function NewProductForm({addNewProduct}) {
     const [priceValue, setPriceValue] = useState("")
 
 
-    // const handleNewProductFormSubmit = (e) => {
-    //     e.preventDefault();
+    const handleNewProductFormSubmit = (e) => {
+        e.preventDefault();
 
-    //     const newProduct = {
-    //         name: nameValue, 
-    //     description: descriptionValue, 
-    //     stock: stockValue, 
-    //     price: priceValue, 
-    //     favorite: favoriteValue, 
-    //     image_url: imageUrlValue, 
-    //     category: {
-    //         name: categoryValue
-    //     }
-    //     }
+        console.log("new product created!")
+
+        const newProduct = {
+            name: nameValue, 
+        description: descriptionValue, 
+        stock: stockValue, 
+        price: priceValue, 
+        favorite: favoriteValue, 
+        image_url: imageUrlValue, 
+        category: {
+            name: categoryValue
+        }
+        }
         
-    //     fetch("/products", {
-    //         method: "POST", 
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         }, 
-    //         body: JSON.stringify(newProduct)
-    //     })
-    //         .then(r => r.json())
-    //         .then(newProduct => addNewProduct(newProduct))
-    // }
+        // fetch("/products", {
+        //     method: "POST", 
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     }, 
+        //     body: JSON.stringify(newProduct)
+        // })
+        //     .then(r => r.json())
+        //     .then(newProduct => addNewProduct(newProduct))
+    }
 
     
 
