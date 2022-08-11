@@ -40,6 +40,8 @@ function UpdateProductsForm({product, updateProduct, product: {category, descrip
       })
         .then(r => r.json())
         .then(updatedProduct => updateProduct(updatedProduct))
+
+        
     }
 
     // value type conversions:
